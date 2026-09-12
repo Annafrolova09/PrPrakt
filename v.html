@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOX — велосипеды и аксессуары</title>
+    <link rel="stylesheet" href="vss.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container nav">
+        <a href="#home" class="logo">VELO<span>X</span></a>
+
+        <nav class="menu">
+            <a href="#home">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#tips">Советы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+        <button class="cart-button" onclick="openCart()">
+            Корзина <span id="cartCount">0</span>
+        </button>
+
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <div class="hero-text">
+            <p class="small-title">МАГАЗИН ВЕЛОСИПЕДОВ</p>
+            <h1>Движение начинается<br>с правильного велосипеда</h1>
+            <p>
+                Велосипеды, экипировка и аксессуары для города,
+                путешествий и активного отдыха.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#catalog" class="btn primary">Перейти в каталог</a>
+                <a href="#advantages" class="btn secondary">Почему VELOX?</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="categories container">
+
+    <div class="section-heading">
+        <p>КАТЕГОРИИ</p>
+        <h2>Выберите свой стиль</h2>
+    </div>
+
+    <div class="category-grid">
+
+        <a href="#catalog" class="category-card">
+            <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=900&q=85" alt="Горный велосипед">
+            <div>
+                <h3>Горные</h3>
+                <span>Для бездорожья →</span>
+            </div>
+        </a>
+
+        <a href="#catalog" class="category-card">
+            <img src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e?auto=format&fit=crop&w=900&q=85" alt="Шоссейный велосипед">
+            <div>
+                <h3>Шоссейные</h3>
+                <span>Для скорости →</span>
+            </div>
+        </a>
+
+        <a href="#catalog" class="category-card">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85" alt="Городской велосипед">
+            <div>
+                <h3>Городские</h3>
+                <span>Для города →</span>
+            </div>
+        </a>
+
+        <a href="#catalog" class="category-card">
+            <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=900&q=85" alt="Велосипед BMX">
+            <div>
+                <h3>BMX</h3>
+                <span>Для трюков →</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+
+<section class="catalog container" id="catalog">
+
+    <div class="section-heading catalog-heading">
+        <div>
+            <p>КАТАЛОГ</p>
+            <h2>Популярные товары</h2>
+        </div>
+
+        <div class="filters">
+            <button class="filter active" onclick="filterProducts('all', this)">Все</button>
+            <button class="filter" onclick="filterProducts('bike', this)">Велосипеды</button>
+            <button class="filter" onclick="filterProducts('accessory', this)">Аксессуары</button>
+        </div>
+    </div>
+
+    <div class="products" id="products">
+
+        <article class="product" data-category="bike">
+            <div class="product-image">
+                <img src="https://avatars.mds.yandex.net/i?id=00644c584a65e83ecf6d7a71e6827b79_l-4903543-images-thumbs&n=13" alt="Mountain Pro">
+                <span class="badge">Хит</span>
+            </div>
+            <div class="product-info">
+                <span class="product-category">Горный велосипед</span>
+                <h3>Mountain Pro 500</h3>
+                <p>Алюминиевая рама, 27 скоростей, гидравлические тормоза.</p>
+                <div class="product-bottom">
+                    <strong>74 990 ₽</strong>
+                    <button onclick="addToCart('Mountain Pro 500', 74990)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="bike">
+            <div class="product-image">
+                <img src="https://image.made-in-china.com/2f0j00LSBlMGjRrwoP/Forever-700-25c-Aluminum-Alloy-Shimano-2-7-Speed-City-Road-Bike-for-Adult-Man.webp" alt="Road Speed">
+                <span class="badge new">Новинка</span>
+            </div>
+            <div class="product-info">
+                <span class="product-category">Шоссейный велосипед</span>
+                <h3>Road Speed 7</h3>
+                <p>Лёгкий спортивный велосипед для быстрых поездок.</p>
+                <div class="product-bottom">
+                    <strong>119 990 ₽</strong>
+                    <button onclick="addToCart('Road Speed 7', 119990)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="bike">
+            <div class="product-image">
+                <img src="https://momentummag.com/wp-content/uploads/2024/01/franklin3speed.jpg" alt="Urban City">
+            </div>
+            <div class="product-info">
+                <span class="product-category">Городской велосипед</span>
+                <h3>Urban City 3</h3>
+                <p>Комфортная посадка, багажник и защита цепи.</p>
+                <div class="product-bottom">
+                    <strong>54 990 ₽</strong>
+                    <button onclick="addToCart('Urban City 3', 54990)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="bike">
+            <div class="product-image">
+                <img src="https://avatars.mds.yandex.net/i?id=7922de20e99c61d01effad5db2abc9d5_l-5151606-images-thumbs&n=13" alt="Trail Master">
+            </div>
+            <div class="product-info">
+                <span class="product-category">MTB велосипед</span>
+                <h3>Trail Master 29</h3>
+                <p>Большие колёса 29", амортизационная вилка.</p>
+                <div class="product-bottom">
+                    <strong>89 990 ₽</strong>
+                    <button onclick="addToCart('Trail Master 29', 89990)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="accessory">
+            <div class="product-image">
+                <img src="https://basket-45.wbbasket.ru/vol12874/part1287438/1287438486/images/big/1.webp" alt="Велосипедный шлем">
+            </div>
+            <div class="product-info">
+                <span class="product-category">Экипировка</span>
+                <h3>Шлем Aero Safe</h3>
+                <p>Лёгкий защитный шлем с системой вентиляции.</p>
+                <div class="product-bottom">
+                    <strong>6 490 ₽</strong>
+                    <button onclick="addToCart('Шлем Aero Safe', 6490)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="accessory">
+            <div class="product-image">
+                <img src="https://avatars.mds.yandex.net/get-mpic/14110297/2a0000019839b1735322c190e82a249b02d4/orig" alt="Велосипедная сумка">
+            </div>
+            <div class="product-info">
+                <span class="product-category">Аксессуары</span>
+                <h3>Bike Bag Pro</h3>
+                <p>Компактная водостойкая сумка под седло.</p>
+                <div class="product-bottom">
+                    <strong>3 290 ₽</strong>
+                    <button onclick="addToCart('Bike Bag Pro', 3290)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="accessory">
+            <div class="product-image">
+                <img src="https://cdn.sportmaster.ru/upload/mdm/media_content/resize/5ce/768_1024_4bbc/191986240299.jpg" alt="Велосипедные перчатки">
+            </div>
+            <div class="product-info">
+                <span class="product-category">Экипировка</span>
+                <h3>Grip Gloves</h3>
+                <p>Велосипедные перчатки с усиленной ладонью.</p>
+                <div class="product-bottom">
+                    <strong>2 490 ₽</strong>
+                    <button onclick="addToCart('Grip Gloves', 2490)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="product" data-category="accessory">
+            <div class="product-image">
+                <img src="https://avatars.mds.yandex.net/get-mpic/4383514/2a000001926d9f1265a633b41b3405cdafbd/orig" alt="Велосипедный насос">
+            </div>
+            <div class="product-info">
+                <span class="product-category">Инструменты</span>
+                <h3>Mini Pump X</h3>
+                <p>Компактный насос высокого давления для поездок.</p>
+                <div class="product-bottom">
+                    <strong>1 890 ₽</strong>
+                    <button onclick="addToCart('Mini Pump X', 1890)">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<section class="advantages" id="advantages">
+    <div class="container">
+
+        <div class="section-heading center">
+            <p>ПОЧЕМУ VELOX</p>
+            <h2>Всё для комфортного катания</h2>
+        </div>
+
+        <div class="advantages-grid">
+
+            <div class="advantage">
+                <div class="advantage-number">01</div>
+                <h3>Проверенные бренды</h3>
+                <p>Подбираем модели и аксессуары от производителей, которым доверяют велосипедисты.</p>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-number">02</div>
+                <h3>Быстрая доставка</h3>
+                <p>Отправляем заказы по России. Доставка велосипедов осуществляется в надёжной упаковке.</p>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-number">03</div>
+                <h3>Помощь экспертов</h3>
+                <p>Поможем подобрать велосипед под ваш рост, стиль катания и бюджет.</p>
+            </div>
+
+            <div class="advantage">
+                <div class="advantage-number">04</div>
+                <h3>Гарантия</h3>
+                <p>На велосипеды и оборудование действует официальная гарантия производителя.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="tips container" id="tips">
+
+    <div class="section-heading">
+        <p>ПОЛЕЗНО ЗНАТЬ</p>
+        <h2>Как ухаживать за велосипедом</h2>
+    </div>
+
+    <div class="tips-grid">
+
+        <div class="tip">
+            <span>01</span>
+            <h3>Следите за цепью</h3>
+            <p>
+                Регулярно очищайте цепь от грязи и наносите специальную
+                смазку. Особенно важно делать это после поездок под дождём.
+            </p>
+        </div>
+
+        <div class="tip">
+            <span>02</span>
+            <h3>Проверяйте давление</h3>
+            <p>
+                Перед поездкой проверяйте давление в шинах.
+                Правильное давление улучшает управляемость и снижает износ.
+            </p>
+        </div>
+
+        <div class="tip">
+            <span>03</span>
+            <h3>Проверяйте тормоза</h3>
+            <p>
+                Осматривайте тормозные колодки и проверяйте работу
+                тормозных ручек перед длительной поездкой.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="newsletter">
+    <div class="container newsletter-content">
+        <div>
+            <p>РАССЫЛКА VELOX</p>
+            <h2>Новости и выгодные предложения</h2>
+        </div>
+
+        <form onsubmit="subscribe(event)">
+            <input type="email" placeholder="Ваш e-mail" required>
+            <button type="submit">Подписаться</button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+
+<footer id="contacts">
+    <div class="container footer-grid">
+
+        <div>
+            <a href="#home" class="logo">VELO<span>X</span></a>
+            <p>Велосипеды и аксессуары<br>для тех, кто любит движение.</p>
+        </div>
+
+        <div>
+            <h4>Магазин</h4>
+            <a href="#catalog">Велосипеды</a>
+            <a href="#catalog">Аксессуары</a>
+            <a href="#catalog">Экипировка</a>
+        </div>
+
+        <div>
+            <h4>Помощь</h4>
+            <a href="#tips">Советы</a>
+            <a href="#advantages">Доставка</a>
+            <a href="#advantages">Гарантия</a>
+        </div>
+
+        <div>
+            <h4>Контакты</h4>
+            <p>+7 (900) 123-45-67</p>
+            <p>info@velox.ru</p>
+            <p>Пн–Вс: 09:00–21:00</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 VELOX. Все права защищены.
+    </div>
+</footer>
+
+
+<!-- КОРЗИНА -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+    <div class="cart" onclick="event.stopPropagation()">
+
+        <div class="cart-header">
+            <h2>Ваша корзина</h2>
+            <button onclick="closeCart()">×</button>
+        </div>
+
+        <div id="cartItems" class="cart-items">
+            <div class="empty-cart">
+                <h3>Корзина пуста</h3>
+                <p>Добавьте товары из каталога.</p>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Итого:</span>
+                <strong id="cartTotal">0 ₽</strong>
+            </div>
+
+            <button class="checkout" onclick="checkout()">
+                Оформить заказ
+            </button>
+
+            <button class="clear-cart" onclick="clearCart()">
+                Очистить корзину
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+
+    const button = event.target;
+    const oldText = button.textContent;
+
+    button.textContent = "Добавлено";
+    button.classList.add("added");
+
+    setTimeout(() => {
+        button.textContent = oldText;
+        button.classList.remove("added");
+    }, 900);
+}
+
+
+function updateCart() {
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartTotal = document.getElementById("cartTotal");
+
+    let total = 0;
+    let count = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+    });
+
+    cartCount.textContent = count;
+    cartTotal.textContent = total.toLocaleString("ru-RU") + " ₽";
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <h3>Корзина пуста</h3>
+                <p>Добавьте товары из каталога.</p>
+            </div>
+        `;
+        return;
+    }
+
+    cartItems.innerHTML = cart.map((item, index) => `
+
+        <div class="cart-item">
+
+            <div>
+                <h3>${item.name}</h3>
+                <p>${item.price.toLocaleString("ru-RU")} ₽</p>
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity(${index}, -1)">−</button>
+                <span>${item.quantity}</span>
+                <button onclick="changeQuantity(${index}, 1)">+</button>
+            </div>
+
+            <strong>
+                ${(item.price * item.quantity).toLocaleString("ru-RU")} ₽
+            </strong>
+
+            <button class="remove" onclick="removeItem(${index})">×</button>
+
+        </div>
+
+    `).join("");
+}
+
+
+function changeQuantity(index, change) {
+
+    cart[index].quantity += change;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+}
+
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+
+function clearCart() {
+    cart = [];
+    updateCart();
+}
+
+
+function openCart() {
+    document.getElementById("cartOverlay").classList.add("show");
+    document.body.classList.add("no-scroll");
+}
+
+
+function closeCart(event) {
+
+    if (!event || event.target === document.getElementById("cartOverlay")) {
+        document.getElementById("cartOverlay").classList.remove("show");
+        document.body.classList.remove("no-scroll");
+    }
+}
+
+
+function checkout() {
+
+    if (cart.length === 0) {
+        alert("Сначала добавьте товары в корзину.");
+        return;
+    }
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+
+    const name = prompt("Введите ваше имя:");
+
+    if (!name) return;
+
+    const phone = prompt("Введите номер телефона:");
+
+    if (!phone) return;
+
+    alert(
+        "Спасибо, " + name + "!\n\n" +
+        "Ваш заказ принят.\n" +
+        "Сумма: " + total.toLocaleString("ru-RU") + " ₽\n\n" +
+        "Мы свяжемся с вами по номеру " + phone + "."
+    );
+
+    cart = [];
+    updateCart();
+    closeCart();
+}
+
+
+function filterProducts(category, button) {
+
+    document.querySelectorAll(".filter").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".product").forEach(product => {
+
+        if (category === "all" ||
+            product.dataset.category === category) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+}
+
+
+function toggleMenu() {
+    document.querySelector(".menu").classList.toggle("open");
+}
+
+
+function subscribe(event) {
+
+    event.preventDefault();
+
+    const email = event.target.querySelector("input").value;
+
+    alert(
+        "Спасибо!\n\n" +
+        "Адрес " + email +
+        " успешно добавлен в рассылку VELOX."
+    );
+
+    event.target.reset();
+}
+
+
+document.querySelectorAll(".menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+        document.querySelector(".menu").classList.remove("open");
+    });
+
+});
+
+
+</script>
+
+</body>
+</html>
